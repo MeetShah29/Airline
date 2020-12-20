@@ -49,6 +49,12 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         super.onStart();
     }
 
+    @Override
+    public void onBackPressed() {
+        finishAffinity();
+        super.onBackPressed();
+    }
+
     public void getDetails() {
         viewModel.getDetailedView().observe(this, movieModels -> {
             adapter.setFlightList((List<FlightModel>) movieModels);
