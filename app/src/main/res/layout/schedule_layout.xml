@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+<!--        binding adapters-->
+<!--        util-->
+
+        <variable
+            name="model"
+            type="com.example.mvvmjava.model.FlightModel" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/date_rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/date_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@color/grey"
+            android:padding="2dp"
+            app:disp_date="@{model}"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            tools:text="21, June 2020" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/flight_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date_txt"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/items_border_bottom">
+
+            <TextView
+                android:id="@+id/airports"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="4dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:drawablePadding="5dp"
+                app:airport_text="@{model}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="EDI - MA" />
+
+            <TextView
+                android:id="@+id/time_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1"
+                app:layout_constraintStart_toStartOf="@+id/airports"
+                app:layout_constraintTop_toBottomOf="@+id/airports"
+                app:times_text="@{model}"
+                tools:text="07:50 - 09:30" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+</layout>
